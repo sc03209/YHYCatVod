@@ -11,8 +11,8 @@
 
 
 ## 远端配置：
-    * github://ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@github.com/YuanHsing/CatVodOpen/main/js/config_open2.json
-    * github://github_pat_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@github.com/YuanHsing/CatVodOpen/main/js/config_open2.json
+    * github://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@github.com/sc03209/YHYCatVod/main/config_open.json
+    * github://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@github.com/sc03209/YHYCatVod/main/js/config_open.json
 
 
 ## 本地配置：
