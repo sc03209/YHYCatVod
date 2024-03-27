@@ -33,7 +33,7 @@ async function init(cfg) {
     try {
         siteKey = _.isEmpty(cfg.skey) ? '' : cfg.skey;
         siteType = _.isEmpty(cfg.stype) ? '' : cfg.stype;
-        await initAli(cfg.ext);
+        await initAli(cfg);
     } catch (e) {
         await log('init:' + e.message + ' line:' + e.lineNumber);
     }
@@ -79,15 +79,23 @@ async function play(flag, id, flags) {
 async function search(wd, quick, pg) {
     if (pg <= 0) pg = 1;
     const limit = 20;
+    let redirect;
+    if (pg > 1) {
+        redirect = 0;
+    }
     const param = {
         keyboard: wd,
     };
-    const data = await requestRaw(siteUrl + '/search', 'post', param);
+    const data = await requestRaw(siteUrl + '/search', 'post', param, redirect);
     let html = '';
-    const headers = data.headers;
-    if (headers.hasOwnProperty('location')) {
-        const url = headers['location'] + '?p=' + pg;
-        html = await request(url);
+    if (redirect) {
+        html = data.content;
+    } else {
+        const headers = data.headers;
+        if (headers.hasOwnProperty('location')) {
+            const url = headers['location'] + '?p=' + pg;
+            html = await request(url);
+        }
     }
 
     const $ = load(html);

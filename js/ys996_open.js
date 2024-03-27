@@ -33,8 +33,38 @@ async function home(filter) {
     },{
         type_id: '3',
         type_name: '动漫',
+    },{
+        type_id: '4',
+        type_name: '短剧',
+    },{
+        type_id: '6',
+        type_name: '动作片',
+    },{
+        type_id: '7',
+        type_name: '喜剧片',
+    },{
+        type_id: '8',
+        type_name: '爱情片',
+    },{
+        type_id: '9',
+        type_name: '科幻片',
+    },{
+        type_id: '10',
+        type_name: '恐怖片',
+    },{
+        type_id: '11',
+        type_name: '剧情片',
+    },{
+        type_id: '12',
+        type_name: '战争片',
+    },{
+        type_id: '13',
+        type_name: '动画片',
+    },{
+        type_id: '14',
+        type_name: '纪录片',
     }];
-
+    	
     let filterObj = genFilterObj();
     return JSON.stringify({
         class: classes,
@@ -88,7 +118,6 @@ async function category(tid, pg, filter, extend) {
     let videos = await getVideos(url);
     return JSON.stringify({
         list: videos,
-        page: pg
     });
 }
 

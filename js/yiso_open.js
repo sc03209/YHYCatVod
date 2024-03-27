@@ -33,7 +33,10 @@ async function init(cfg) {
         if (configs.length == 2) {
             cookie = configs[1];
         }
-        await initAli(configs[0]);
+        const token = {
+            ext: configs[0]
+        };
+        await initAli(token);
     } catch (e) {
         await log('init:' + e.message + ' line:' + e.lineNumber);
     }

@@ -22,7 +22,7 @@ async function init(cfg) {
     try {
         siteKey = _.isEmpty(cfg.skey) ? '' : cfg.skey;
         siteType = _.isEmpty(cfg.stype) ? '' : cfg.stype;
-        await initAli(cfg.ext);
+        await initAli(cfg);
     } catch (e) {
         await log('init:' + e.message + ' line:' + e.lineNumber);
     }

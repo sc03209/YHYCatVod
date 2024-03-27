@@ -39,7 +39,10 @@ async function init(cfg) {
             username = configs[1];
             password = configs[2];
         }
-        await initAli(configs[0]);
+        const token = {
+            ext: configs[0]
+        };
+        await initAli(token);
     } catch (e) {
         await log('init:' + e.message + ' line:' + e.lineNumber);
     }
